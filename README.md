@@ -4,9 +4,14 @@ Hector Alejandro Montes Lobaton
 
 ## Introducción
 
-En este laboratorio se utilizó ROS en el que se hizo uso de la herramienta turtlesim para comprender los conceptos básicos de la programcación de robots en este ambiente de programación.  
+El objetivo de esta práctica es implementar los Joint Controllers con ROS para manipular servomotores Dynamixel AX-12 del robot Phantom X Pincher y usar tópicos de estado, servicios y comando para todos los Joint Controllers del robot Phantom X Pincher.
 
-
+A continuación se muestra el script realizado en Python para ubicar el robot Pincher en las 5 posiciones especificadas:
+- 0, 0, 0, 0, 0.
+- 25, 25, 20, -20, 0.
+- -35, 35, -30, 30, 0.
+-  85, -20, 55, 25, 0.
+- 80, -35, 55, -45, 0.
 
 ## Conexion ROS a Python:  Reutilizando el codigo del turtle sim.
 
