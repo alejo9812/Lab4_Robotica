@@ -16,7 +16,7 @@ A continuación se muestra el script realizado en Python para ubicar el robot Pi
 ## Conexion ROS a Python:  Reutilizando el codigo del turtle sim.
 
 
-Tomamos un publicador dentro de la arquitectura ROS.
+La función joint_publisher() inicializa un publicador de ROS en el tópico `/joint_trajectory`[^/joint_trajectory]  para enviar mensajes del tipo JointTrajectory y configura un nodo de ROS llamado joint_publisher, asegurándose de que no sea anónimo, para controlar el movimiento de las articulaciones de un robot..
 ```
  def joint_publisher():
      pub = rospy.Publisher('/joint_trajectory', JointTrajectory, queue_size=0)
@@ -25,7 +25,16 @@ Tomamos un publicador dentro de la arquitectura ROS.
 En otra se incia el nodo *turtlesim*.
 
 ```
-rosrun turtlesim turtlesim_node
+state = JointTrajectory()
+   state.header.stamp = rospy.Time.now()
+   state.joint_names = ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5"]
+   point = JointTrajectoryPoint()
+   point.positions = [0, 0, 0, 0, 0]    
+   point.time_from_start = rospy.Duration(1)
+   state.points.append(point)
+   pub.publish(state)
+   print('published command')
+   rospy.sleep(5)
 ```
 
 Abriendo en Matlab  se ejecuta el siguiente script *Matlab.mlx*.
