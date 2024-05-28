@@ -16,13 +16,13 @@ A continuación se muestra el script realizado en Python para ubicar el robot Pi
 ## Conexion ROS a Python:  Reutilizando el codigo del turtle sim.
 
 
-La función joint_publisher() inicializa un publicador de ROS en el tópico `/joint_trajectory`[^/joint_trajectory]  para enviar mensajes del tipo JointTrajectory y configura un nodo de ROS llamado joint_publisher, asegurándose de que no sea anónimo, para controlar el movimiento de las articulaciones de un robot..
+La función joint_publisher() inicializa un publicador de ROS en el tópico `/joint_trajectory` para enviar mensajes del tipo JointTrajectory y configura un nodo de ROS llamado `joint_publisher`, asegurándose de que no sea anónimo, para controlar el movimiento de las articulaciones de un robot..
 ```
  def joint_publisher():
      pub = rospy.Publisher('/joint_trajectory', JointTrajectory, queue_size=0)
      rospy.init_node('joint_publisher', anonymous=False)
 ```
-En otra se incia el nodo *turtlesim*.
+Este fragmento de código crea un mensaje `JointTrajectory`, asigna una marca de tiempo actual, define los nombres de las articulaciones y configura un punto de trayectoria con todas las posiciones inicializadas a cero y un tiempo desde el inicio de un segundo. Luego, agrega este punto al mensaje de trayectoria, publica el mensaje en el tópico correspondiente y finalmente imprime un mensaje de confirmación antes de pausar la ejecución durante cinco segundos, esto para cada posicion, el siguiente es un fragmento para la posicion 1.
 
 ```
 state = JointTrajectory()
@@ -37,12 +37,19 @@ state = JointTrajectory()
    rospy.sleep(5)
 ```
 
-Abriendo en Matlab  se ejecuta el siguiente script *Matlab.mlx*.
+Se suscribe al topico `joint_states`.
 
 ```
-Matlab.mlx
+def listener():
+    rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
 ```
 
+Convierte las posiciones articulares recibidas de radianes a grados y luego envía estos datos convertidos a una interfaz HMI
+```
+def callback(data):
+    data = [value*180/np.pi for value in data.position]
+    HMI.data_to_HMI(data)
+```
 
 ![Graph](Graph_mlx)
 
