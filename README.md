@@ -8,11 +8,14 @@ En este laboratorio se utilizó ROS en el que se hizo uso de la herramienta turt
 
 
 
-## MATLAB : Conexion ROS a Matlab.
-En una terminal inicializar ROS.
+## Conexion ROS a Python:  Reutilizando el codigo del turtle sim.
 
+
+Tomamos un publicador dentro de la arquitectura ROS.
 ```
-roscore
+ def joint_publisher():
+     pub = rospy.Publisher('/joint_trajectory', JointTrajectory, queue_size=0)
+     rospy.init_node('joint_publisher', anonymous=False)
 ```
 En otra se incia el nodo *turtlesim*.
 
