@@ -1,1 +1,1 @@
-# Lab4_Robotica
+# Lab4_Robotica_Cinematica_Directa
