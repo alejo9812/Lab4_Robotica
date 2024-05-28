@@ -1,4 +1,4 @@
-# Lab4_Robotica_Cinematica_Directa
+# Lab4_Robotica_Cinematica_Directa - Phantom X - ROS
 
 Hector Alejandro Montes Lobaton  
 
