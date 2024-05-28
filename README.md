@@ -151,35 +151,31 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 <span><img id="Fig_2" src="Imágenes/terminal roslaunch running.png" width="600"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> ROS Corriendo correctamente.</label></span>
 
+
+
+# 5. Video de demostración
+
+Para poder probar la interfaz desarrollada, se ubican en un mismo directorio los scripts de python [HMI.py](./Python/HMI.py) y [main_HMI.py](./Python/main_HMI.py). Por ejemplo, en la carpeta catkin_ws/src/dynamixel_one_motor/scripts.
+
+Luego, se abre una terminal, para ejecutar los comandos:
+
+ ```
+catkin build dynamixel_one_motor
+source devel/setup.bash
+roslaunch dynamixel_one_motor one_controller.launch
 ```
-% Apagar cualquier instancia de ROS en ejecución
-rosshutdown;
 
-% Inicializar ROS
-rosinit;
+Finalmente, en otra terminal se ejecuta el script [main_HMI.py](./Python/main_HMI.py).
 
-% Crear un publicador para enviar comandos de velocidad a la tortuga
-velPub = rospublisher('/turtle1/cmd_vel','geometry_msgs/Twist');
-
-% Crear un mensaje vacío de velocidad
-velMsg = rosmessage(velPub);
-
-% Configurar la velocidad lineal en el mensaje
-velMsg.Linear.X = 1;
-
-% Enviar el mensaje de velocidad a la tortuga
-send(velPub, velMsg);
-
-% Esperar durante 1 segundo para permitir que la tortuga se mueva
-pause(1);
-
-% Crear un suscriptor para el tópico de velocidad de la tortuga
-cameraSub = rossubscriber('/turtle1/cmd_vel', 'geometry_msgs/Twist');
-
-% Obtener el último mensaje de velocidad recibido por la tortuga
-cameraMsg = cameraSub.LatestMessage;
-
-% Extraer los componentes lineales y angulares del mensaje de velocidad
-Lin = cameraMsg.Linear;
-Ang = cameraMsg.Angular;
 ```
+python3 main_HMI.py
+```
+
+Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 11.**, allí se evidencia la correcta ejecución de la interfaz.
+
+<span><img id="Fig_12" src="Imágenes/6. beginning interfaz.png" width="700"/>
+<label for = "Fig_12" ><br><b>Figura 12.</b> Demostración del funcionamiento de la interfaz</label></span>
+
+Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este <a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp/>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
+
+Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando las 5 posiciones solicitadas.
