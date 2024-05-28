@@ -13,7 +13,7 @@ A continuación se muestra el script realizado en Python para ubicar el robot Pi
 -  85, -20, 55, 25, 0.
 - 80, -35, 55, -45, 0.
 
-## Conexion ROS a Python:  Reutilizando el codigo del turtle sim.
+## Conexion ROS a Python:  [main_HMI.py](./Python/main_HMI.py).
 
 
 La función joint_publisher() inicializa un publicador de ROS en el tópico `/joint_trajectory` para enviar mensajes del tipo JointTrajectory y configura un nodo de ROS llamado `joint_publisher`, asegurándose de que no sea anónimo, para controlar el movimiento de las articulaciones de un robot..
