@@ -148,83 +148,66 @@ Link del video https://youtu.be/fBi8oY1wv1c?si=LQ2hGFMvziA7KhZC
 
 
 
-## Ejecutar scripts
+## Ejecutar Scripts
 
-
-Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`, con la carpeta `src`creada. 
+Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`, con la carpeta `src` creada.
 
 1. Clonar el repositorio [dynamixel_one_motor](https://github.com/fegonzalez7/dynamixel_one_motor.git) en la carpeta src.
 
-```
-git clone https://github.com/fegonzalez7/dynamixel_one_motor.git
-```
+    ```bash
+    git clone https://github.com/fegonzalez7/dynamixel_one_motor.git
+    ```
 
 2. Editar el archivo `basic.yaml`, ubicado en la carpeta `config`, en la ruta `...\catkin_ws\src\dynamixel_one_motor\config\`. Allí se debe dejar la siguiente configuración, y guardar los cambios. Esta configuración es necesaria para que ROS reconozca los motores, se asignan los ID encontrados en el scan hecho en *Dynamixel*.
 
-```
-joint_1:
-  ID: 1
-  Return_Delay_Time: 0
-  
-joint_2:
- ID: 2
- Return_Delay_Time: 1
-  
-joint_3:
- ID: 3
- Return_Delay_Time: 2
-  
-joint_4:
- ID: 4
- Return_Delay_Time: 3
-  
-joint_5:
- ID: 5
- Return_Delay_Time: 4
- ```
+    ```yaml
+    joint_1:
+      ID: 1
+      Return_Delay_Time: 0
 
- Como se puede observar `Return_Delay_Time`, es la característica encargada del retardo por articulación recomendado en la guía de trabajo. 
- 
+    joint_2:
+      ID: 2
+      Return_Delay_Time: 1
+
+    joint_3:
+      ID: 3
+      Return_Delay_Time: 2
+
+    joint_4:
+      ID: 4
+      Return_Delay_Time: 3
+
+    joint_5:
+      ID: 5
+      Return_Delay_Time: 4
+    ```
+
+    Como se puede observar `Return_Delay_Time`, es la característica encargada del retardo por articulación recomendado en la guía de trabajo.
+
 3. Con una terminal abierta en la carpeta `catkin_ws`, se ejecuta el siguiente comando para guardar los cambios.
 
- ```
-catkin build dynamixel_one_motor
- ```
+    ```bash
+    catkin build dynamixel_one_motor
+    ```
 
 4. En la misma terminal, se ejecutan los siguientes comandos, los cuales dan pie a la ejecución y conexión de ROS con los motores.
 
- ``` 
- source devel/setup.bash
- roslaunch dynamixel_one_motor one_controller.launch
-```
+    ```bash
+    source devel/setup.bash
+    roslaunch dynamixel_one_motor one_controller.launch
+    ```
 
-Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 2**. Allí se evidencia como ROS reconoce los 5 motores del robot.
+Luego, se abre una terminal, para ejecutar los comandos en la carpeta `catkin_ws/src/dynamixel_one_motor/scripts`:
 
-<span><img id="Fig_2" src="Imágenes/terminal roslaunch running.png" width="600"/>
-<label for = "Fig_2" ><br><b>Figura 2.</b> ROS Corriendo correctamente.</label></span>
+    ```bash
+    catkin build dynamixel_one_motor
+    source devel/setup.bash
+    roslaunch dynamixel_one_motor one_controller.launch
+    ```
 
+Finalmente, en otra terminal se ejecuta el script [Publicador.py](./Scripts/Publicador.py).
 
-Para poder probar la interfaz desarrollada, se ubican en un mismo directorio los scripts de python [HMI.py](./Python/HMI.py) y [main_HMI.py](./Python/main_HMI.py). Por ejemplo, en la carpeta catkin_ws/src/dynamixel_one_motor/scripts.
+    ```bash
+    python3 Publicador.py
+    ```
 
-Luego, se abre una terminal, para ejecutar los comandos:
-
- ```
-catkin build dynamixel_one_motor
-source devel/setup.bash
-roslaunch dynamixel_one_motor one_controller.launch
-```
-
-Finalmente, en otra terminal se ejecuta el script [main_HMI.py](./Python/main_HMI.py).
-
-```
-python3 main_HMI.py
-```
-
-Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el resultado debe ser el siguiente. Ver **Figura 11.**, allí se evidencia la correcta ejecución de la interfaz.
-
-<span><img id="Fig_12" src="Imágenes/6. beginning interfaz.png" width="700"/>
-<label for = "Fig_12" ><br><b>Figura 12.</b> Demostración del funcionamiento de la interfaz</label></span>
-
-Se optó por hacer un video donde se vean ambos requerimientos, la demostración de uso de la interfaz de usuario y el brazo alcanzando cada posición solicitada. Dicho video se encuentra en Google Drive, se puede acceder a el mediante este <a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp/>link</a>, es importante que acceda con la cuenta institucional *(ejemplo@unal.edu.co)*.
-
-Allí se observa el correcto funcionamiento de la interfaz y al robot alcanzando las 5 posiciones solicitadas.
