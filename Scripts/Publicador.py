@@ -4,10 +4,6 @@ from std_msgs.msg import String
 from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 import B.Interfaz as Interfaz 
-
-
-
-         
          
 def callback(data):
     data = [value*180/np.pi for value in data.position]
