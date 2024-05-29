@@ -7,7 +7,16 @@ import B.Interfaz as Interfaz
 
 
 
-# Función que permite publicar en cada tópico de controlador de articulación
+         
+         
+def callback(data):
+    data = [value*180/np.pi for value in data.position]
+    Interfaz.data_to_HMI(data)
+
+
+def listener():
+    rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
+
 def joint_publisher():
      pub = rospy.Publisher('/joint_trajectory', JointTrajectory, queue_size=0)
      rospy.init_node('joint_publisher', anonymous=False)
@@ -63,15 +72,6 @@ def joint_publisher():
          pub.publish(state)
          print('published command')
          rospy.sleep(5)
-         
-         
-def callback(data):
-    data = [value*180/np.pi for value in data.position]
-    Interfaz.data_to_HMI(data)
-
-# Función que permite suscribirse al tópico de articulaciones
-def listener():
-    rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
 
 def main():
     global pub
