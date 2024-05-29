@@ -1,6 +1,7 @@
 # Lab4_Robotica_Cinematica_Directa - Phantom X - ROS
 
 Hector Alejandro Montes Lobaton  
+Bryan Steven Pinilla Castro
 
 ## Introducción
 
@@ -17,7 +18,7 @@ A continuación se muestra el script realizado en Python para ubicar el robot Pi
 
 
 
-## Conexion ROS a Python:  [main.py](./Scripts/main.py).
+## Conexion ROS:  [main.py](./Scripts/main.py).
 
 
 La función joint_publisher() inicializa un publicador de ROS en el tópico `/joint_trajectory` para enviar mensajes del tipo JointTrajectory y configura un nodo de ROS llamado `joint_publisher`, asegurándose de que no sea anónimo, para controlar el movimiento de las articulaciones de un robot..
