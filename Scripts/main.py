@@ -5,19 +5,7 @@ from std_msgs.msg import String
 from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
-def Deg2Rad(pose_deg):
-    pose_rad = [value*np.pi/180 for value in pose_deg]
-    return pose_rad
 
-def callback(data):
-    data = [value*180/np.pi for value in data.position]
-    print (f"Joint1: {data[0]:.2f}°, Joint2: {data[1]:.2f}°, Joint3: {data[2]:.2f}°, Joint4: {data[3]:.2f}°, Joint5: {data[4]:.2f}°")
-
-# Función que permite suscribirse al tópico de articulaciones
-def listener():
-    rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
-
-# Función que permite publicar en cada tópico de controlador de articulación
 def joint_publisher(postura: list, pub: rospy.Publisher):
     state = JointTrajectory()
     state.header.stamp = rospy.Time.now()
@@ -29,6 +17,17 @@ def joint_publisher(postura: list, pub: rospy.Publisher):
     pub.publish(state)
     print('published command')
     rospy.sleep(1)
+
+def callback(data):
+    data = [value*180/np.pi for value in data.position]
+    print (f"Joint1: {data[0]:.2f}°, Joint2: {data[1]:.2f}°, Joint3: {data[2]:.2f}°, Joint4: {data[3]:.2f}°, Joint5: {data[4]:.2f}°")
+
+def listener():
+    rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
+
+def Deg2Rad(pose_deg):
+    pose_rad = [value*np.pi/180 for value in pose_deg]
+    return pose_rad
 
 def main():
     # Poses en radianes
