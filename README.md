@@ -16,7 +16,7 @@ A continuación se muestra el script realizado en Python para ubicar el robot Pi
 
 ## Parametros DH del robot Phantom X Pincher
 
-<span><img id="Fig_1" src="Imagenes/DH.png" width="350"/>
+<span><img id="Fig_1" src="Imagenes/DH.png" width="600"/>
 <label for = "Fig_1" ><br><b>Figura 1.</b> Motores encontrados en el Scan, Dynamixel.</label></span>
 
 ## Conexion ROS:  [main.py](./Scripts/main.py).
