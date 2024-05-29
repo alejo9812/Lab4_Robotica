@@ -1,4 +1,4 @@
-# Lab4_Robotica_Cinematica_Directa - Phantom X - ROS
+# Lab4_Robotica_Cinematica_Directa_Phantom X
 
 Hector Alejandro Montes Lobaton  
 Bryan Steven Pinilla Castro
