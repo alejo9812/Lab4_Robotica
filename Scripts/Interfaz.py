@@ -33,7 +33,11 @@ def show_encabezado(root):
     lb_name1= Label(frm_names, text="Hector Alejandro Montes Lobaton", bg="#94b43b", font=("Arial", 14))
     lb_name1.pack(fill='x')
 
+    lb_name1= Label(frm_names, text="Bryan Steven Pinilla Castro", bg="#94b43b", font=("Arial", 14))
+    lb_name1.pack(fill='x')
 
+
+    
     Button(frm_encabezado, text="EXIT", command=root.destroy).pack(side=LEFT)
 
 
