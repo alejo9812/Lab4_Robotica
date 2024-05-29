@@ -168,8 +168,7 @@ Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`,
     git clone https://github.com/fegonzalez7/dynamixel_one_motor.git
     ```
 
-2. Editar el archivo `basic.yaml`, ubicado en la carpeta `config`, en la ruta `...\catkin_ws\src\dynamixel_one_motor\config\`. Allí se debe dejar la siguiente configuración, y guardar los cambios. Esta configuración es necesaria para que ROS reconozca los motores, se asignan los ID encontrados en el scan hecho en *Dynamixel*.
-
+2. Editar el archivo `basic.yaml`, ubicado en la carpeta `config`, en la ruta `...\catkin_ws\src\dynamixel_one_motor\config\`
     ```yaml
     joint_1:
       ID: 1
@@ -191,8 +190,6 @@ Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`,
       ID: 5
       Return_Delay_Time: 4
     ```
-
-    Como se puede observar `Return_Delay_Time`, es la característica encargada del retardo por articulación recomendado en la guía de trabajo.
 
 3. Con una terminal abierta en la carpeta `catkin_ws`, se ejecuta el siguiente comando para guardar los cambios.
 
