@@ -158,8 +158,6 @@ Link del video https://youtu.be/fBi8oY1wv1c?si=LQ2hGFMvziA7KhZC
 
 
 
-
-
 ## Ejecutar Scripts
 
 Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`, con la carpeta `src` creada.
@@ -222,4 +220,3 @@ Finalmente, en otra terminal se ejecuta el script [Publicador.py](./Scripts/Publ
     ```bash
     python3 Publicador.py
     ```
-
