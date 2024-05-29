@@ -58,6 +58,44 @@ clear
 close all
 clc
 
+
+%Función que genera una matriz de transformación homogénea con los Parámetros de Denavit-Hartenberg
+function matriz = H(the,d,a,alp) 
+%matriz que contiene la rotación en z
+T=cos(the);
+A=sin(the);
+if isnumeric(the) == 1
+    if abs(T) < 0.0000000000001  
+        T=0;
+    end
+    if abs(A) < 0.0000000000001
+         A=0;
+    end 
+end   
+Rz=[T -A 0 0; A T 0 0; 0 0 1 0; 0 0 0 1];
+%matriz que contiene la traslación en z
+Dz=[1 0 0 0; 0 1 0 0; 0 0 1 d; 0 0 0 1];
+%matriz que contiene la traslación en x
+Dx=[1 0 0 a; 0 1 0 0; 0 0 1 0; 0 0 0 1];
+%matriz que contiene la rotación en x
+Y=cos(alp);
+U=sin(alp);
+if isnumeric(alp) == 1
+    if abs(Y) < 0.0000000000001  
+        Y=0;
+    end
+    if abs(U) < 0.0000000000001
+         U=0;
+    end 
+end  
+Rx=[1 0 0 0; 0 Y -U 0; 0 U Y 0; 0 0 0 1];
+%matriz de transformación homogénea 
+matriz = Rz*Dz*Dx*Rx;
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Comparacion de Graficas
 L = [95 -105 -102 68];
 off = [0 pi/2 pi/2 pi];
 q1 = [0 0 0 0]*pi/180;
