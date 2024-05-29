@@ -85,7 +85,21 @@ Robot1.teach(q5) %% Usar el q que se desea de entre las opciones
 hold off
 ```
 
-![Graph](Graph_mlx)
+- 0, 0, 0, 0, 0.
+![1](/Imagenes/1.png)
+
+- 25, 25, 20, -20, 0.
+![2](/Imagenes/2.png)
+
+- -35, 35, -30, 30, 0.
+![3](/Imagenes/3.png)
+
+- 85, -20, 55, 25, 0.
+![4](/Imagenes/4.png)
+
+- 80, -35, 55, -45, 10.
+![5](/Imagenes/5.png)
+
 
 
 
