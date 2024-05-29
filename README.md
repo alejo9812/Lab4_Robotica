@@ -193,20 +193,20 @@ Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`,
 
 3. Con una terminal abierta en la carpeta `catkin_ws`, se ejecuta el siguiente comando para guardar los cambios.
 
-    ```bash
+    ```
     catkin build dynamixel_one_motor
     ```
 
 4. En la misma terminal, se ejecutan los siguientes comandos, los cuales dan pie a la ejecución y conexión de ROS con los motores.
 
-    ```bash
+    ```
     source devel/setup.bash
     roslaunch dynamixel_one_motor one_controller.launch
     ```
 
 Luego, se abre una terminal, para ejecutar los comandos en la carpeta `catkin_ws/src/dynamixel_one_motor/scripts`:
 
-    ```bash
+    ```
     catkin build dynamixel_one_motor
     source devel/setup.bash
     roslaunch dynamixel_one_motor one_controller.launch
@@ -214,6 +214,6 @@ Luego, se abre una terminal, para ejecutar los comandos en la carpeta `catkin_ws
 
 Finalmente, en otra terminal se ejecuta el script [Publicador.py](./Scripts/Publicador.py).
 
-    ```bash
+    ```
     python3 Publicador.py
     ```
