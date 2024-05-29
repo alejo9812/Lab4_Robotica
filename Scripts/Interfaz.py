@@ -11,35 +11,6 @@ current_dir = Path(__file__).parent
 actual_pose = None
 previus_pose = None
 
-def show_encabezado(root):
-    frm_encabezado = Frame(root, bg="#cccccc")
-    frm_encabezado.pack(fill='x')
-
-    img_logo = Image.open(current_dir / "Image" / "Unal.svg")
-    img_logo = img_logo.resize((100, 100), Image.LANCZOS)  # resize to 100x100 pixels
-    img_logo = ImageTk.PhotoImage(img_logo)  # convert the image object to a tkinter-compatible photo image
-
-    lb_img_logo = Label(frm_encabezado, image=img_logo)
-    lb_img_logo.image = img_logo  # keep a reference to the image to prevent it from being garbage collected
-    lb_img_logo.pack(side=LEFT)
-    
-    frm_names = Frame(frm_encabezado, bg="#94b43b")
-    frm_names.pack(side=LEFT, fill='both', expand=True)
-
-    # Create three labels under each other
-    lb_lab4 = Label(frm_names, text="Laboratorio 4, Cinemática Directa", bg="#94b43b", font=("Arial", 16))
-    lb_lab4.pack(fill='x')
-
-    lb_name1= Label(frm_names, text="Hector Alejandro Montes Lobaton", bg="#94b43b", font=("Arial", 14))
-    lb_name1.pack(fill='x')
-
-    lb_name1= Label(frm_names, text="Bryan Steven Pinilla Castro", bg="#94b43b", font=("Arial", 14))
-    lb_name1.pack(fill='x')
-
-
-    
-    Button(frm_encabezado, text="EXIT", command=root.destroy).pack(side=LEFT)
-
 
 def show_contenido(root):
     global cells 
@@ -104,6 +75,36 @@ def show_contenido(root):
 
     lb_img_actual = Label(frm_images)
     lb_img_actual.grid(row=1, column=1, padx=10, pady=10)
+
+
+def show_encabezado(root):
+    frm_encabezado = Frame(root, bg="#cccccc")
+    frm_encabezado.pack(fill='x')
+
+    img_logo = Image.open(current_dir / "Image" / "Unal.svg")
+    img_logo = img_logo.resize((100, 100), Image.LANCZOS)  # resize to 100x100 pixels
+    img_logo = ImageTk.PhotoImage(img_logo)  # convert the image object to a tkinter-compatible photo image
+
+    lb_img_logo = Label(frm_encabezado, image=img_logo)
+    lb_img_logo.image = img_logo  # keep a reference to the image to prevent it from being garbage collected
+    lb_img_logo.pack(side=LEFT)
+    
+    frm_names = Frame(frm_encabezado, bg="#94b43b")
+    frm_names.pack(side=LEFT, fill='both', expand=True)
+
+    # Create three labels under each other
+    lb_lab4 = Label(frm_names, text="Laboratorio 4, Cinemática Directa", bg="#94b43b", font=("Arial", 16))
+    lb_lab4.pack(fill='x')
+
+    lb_name1= Label(frm_names, text="Hector Alejandro Montes Lobaton", bg="#94b43b", font=("Arial", 14))
+    lb_name1.pack(fill='x')
+
+    lb_name1= Label(frm_names, text="Bryan Steven Pinilla Castro", bg="#94b43b", font=("Arial", 14))
+    lb_name1.pack(fill='x')
+
+
+    
+    Button(frm_encabezado, text="EXIT", command=root.destroy).pack(side=LEFT)
 
 
 def callback_teach_button(radio_var):
