@@ -206,7 +206,7 @@ Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`,
 
 Luego, se abre una terminal, para ejecutar los comandos en la carpeta `catkin_ws/src/dynamixel_one_motor/scripts`:
 
-    ```
+   ```
     catkin build dynamixel_one_motor
     source devel/setup.bash
     roslaunch dynamixel_one_motor one_controller.launch
@@ -216,4 +216,6 @@ Finalmente, en otra terminal se ejecuta el script [Publicador.py](./Scripts/Publ
 
     ```
     python3 Publicador.py
-    ```
+    ```  
+   
+  
