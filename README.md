@@ -101,8 +101,7 @@ hold off
 - 80, -35, 55, -45, 10.
 ![5](/Imagenes/5.png)
 
-Link del video <a href=https://drive.google.com/file/d/1fMCtE7DXn7XliofkItHqumCnGdevGWHD/view?usp/>link</a>
-
+Link del video https://youtu.be/fBi8oY1wv1c?si=LQ2hGFMvziA7KhZC
 # 1. Configuración del espacio de trabajo
 
 # 1. Configuración del espacio de trabajo
