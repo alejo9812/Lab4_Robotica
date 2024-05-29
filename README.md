@@ -154,7 +154,7 @@ hold off
 
 Link del video https://youtu.be/fBi8oY1wv1c?si=LQ2hGFMvziA7KhZC
 
-
+HMI  [Interfaz.py](./Scripts/Interfaz.py)
 
 
 
