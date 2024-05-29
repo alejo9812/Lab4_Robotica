@@ -21,8 +21,11 @@ Fue necesario tomar medidas de los eslabones del robot para obtener los parámet
 Las medidas de los eslabones que se obtuvieron en milímetros fueron:
 
 L1 = 95 mm
+
 L2 = 105 mm
+
 L3 = 102 mm
+
 L4 = 68 mm
 
 <span><img id="Fig_1" src="Imagenes/DH.png" width="800"/>
