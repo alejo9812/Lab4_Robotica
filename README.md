@@ -13,6 +13,10 @@ A continuación se muestra el script realizado en Python para ubicar el robot Pi
 -  85, -20, 55, 25, 0.
 - 80, -35, 55, -45, 0.
 
+## Parametros DH del robot Phantom X Pincher
+
+
+
 ## Conexion ROS a Python:  [main_HMI.py](./Python/main_HMI.py).
 
 
