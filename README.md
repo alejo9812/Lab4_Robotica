@@ -17,7 +17,7 @@ A continuación se muestra el script realizado en Python para ubicar el robot Pi
 
 
 
-## Conexion ROS a Python:  [main_HMI.py](./Python/main_HMI.py).
+## Conexion ROS a Python:  [main.py](./Scripts/main.py).
 
 
 La función joint_publisher() inicializa un publicador de ROS en el tópico `/joint_trajectory` para enviar mensajes del tipo JointTrajectory y configura un nodo de ROS llamado `joint_publisher`, asegurándose de que no sea anónimo, para controlar el movimiento de las articulaciones de un robot..
