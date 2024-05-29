@@ -136,7 +136,7 @@ hold off
 - 85, -20, 55, 25, 0.
 ![4](/Imagenes/4.png)
 
-- 80, -35, 55, -45, 10.
+- 80, -35, 55, -45, 0.
 ![5](/Imagenes/5.png)
 
 Link del video https://youtu.be/fBi8oY1wv1c?si=LQ2hGFMvziA7KhZC
