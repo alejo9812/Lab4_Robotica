@@ -102,56 +102,15 @@ hold off
 ![5](/Imagenes/5.png)
 
 Link del video https://youtu.be/fBi8oY1wv1c?si=LQ2hGFMvziA7KhZC
-# 1. Configuración del espacio de trabajo
 
-# 1. Configuración del espacio de trabajo
 
-Aunque el enfoque de la práctica es el uso de herramientas, como el toolbox de Peter Corke y ROS, buena parte del tiempo es invertida en explorar la documentación y los repositorios de referencia. Por tanto, a continuación se expone el procedimiento a seguir para configurar el espacio de trabajo, previo a la elaboración de la práctica, con el fin de que el sistema reconozca los motores y sea posible la conexión con ROS.
 
-## Recomendaciones iniciales.
 
- - No es necesario y llega a ser perjudicial actualizar Python. Con la version de Python que trae la version 20.04 LTS de Ubuntu es más que suficiente.
 
- - No es necesario eliminar los repositorios antes utilizados en la herramienta `Catkin`, no existe evidencia alguna que determine si esto afecta el funcionamiento de la conexión de los motores con ROS.
 
- - Se debe conectar el robot a la fuente de alimentación y el cable de datos a la computadora, en caso contrario, tanto ROS como el software de Dynamixel NO detectaran los motores por más comandos de configuración que se ejecuten.
 
-## a. Descarga de Dynamixel
+## Ejecutar scripts
 
-Primero, se descarga el paquete de instalación para Ubuntu (linux) (<a href= https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/>aquí</a>). Luego, se abre una terminal en la carpeta donde el paquete fue descargado, y se ejecutan en el mismo orden se los siguientes comandos .
-
-- Otorgar permisos al paquete en cuestión.
-
-```
-sudo chmod 775 DynamixelWizard2Setup_x64
-```
-
-- Iniciar el programa y finalizar la instalación.
-
-```
-./DynamixelWizard2Setup_x64
-```
-
-- Dar acceso a los puertos USB.
-
-```
-sudo usermod -aG dialout UserName
-```
-
-*UserName*, corresponde al nombre de usuario de su cuenta Linux, con la que se inicia sesión en Ubuntu.
-
-- Reiniciar
-
-```
-reboot
-```
-
-Una vez terminado el proceso anterior, Ubuntu esta configurado para permitir el paso de información por parte de los motores. Así el software de Dynamixel puede identificar los motores a la hora de ejecutar el Scan encargado de su búsqueda, sin embargo ROS aún no los reconoce.
-
-<span><img id="Fig_1" src="Imágenes/CMotors Found.png" width="350"/>
-<label for = "Fig_1" ><br><b>Figura 1.</b> Motores encontrados en el Scan, Dynamixel.</label></span>
-
-## b. Configuración de *dynamixel_one_motor*
 
 Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`, con la carpeta `src`creada. 
 
@@ -205,9 +164,6 @@ Si las recomendaciones y pasos anteriores, fueron correctamente ejecutados el re
 <span><img id="Fig_2" src="Imágenes/terminal roslaunch running.png" width="600"/>
 <label for = "Fig_2" ><br><b>Figura 2.</b> ROS Corriendo correctamente.</label></span>
 
-
-
-# 5. Video de demostración
 
 Para poder probar la interfaz desarrollada, se ubican en un mismo directorio los scripts de python [HMI.py](./Python/HMI.py) y [main_HMI.py](./Python/main_HMI.py). Por ejemplo, en la carpeta catkin_ws/src/dynamixel_one_motor/scripts.
 
