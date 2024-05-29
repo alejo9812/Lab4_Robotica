@@ -29,7 +29,7 @@ L3 = 102 mm
 L4 = 68 mm
 
 <span><img id="Fig_1" src="Imagenes/DH.png" width="800"/>
-<label for = "Fig_1" ><br><b>Figura 1.</b> Motores encontrados en el Scan, Dynamixel.</label></span>
+<label for = "Fig_1" ><br><b>Figura 1.</b> Parametros DH en cinematica directa.</label></span>
 
 ## Conexion ROS:  [main.py](./Scripts/main.py).
 
