@@ -160,7 +160,7 @@ HMI  [Interfaz.py](./Scripts/Interfaz.py)
 
 ## Ejecutar Scripts
 
-Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`, con la carpeta `src` creada.
+Se tiene como requisito tener configurados `ROS` y la herramienta `Catkin`, con la carpeta `src` creada.
 
 1. Clonar el repositorio [dynamixel_one_motor](https://github.com/fegonzalez7/dynamixel_one_motor.git) en la carpeta src.
 
@@ -191,13 +191,12 @@ Se asume que el usuario tiene a su disposición `ROS` y la herramienta `Catkin`,
       Return_Delay_Time: 4
     ```
 
-3. Con una terminal abierta en la carpeta `catkin_ws`, se ejecuta el siguiente comando para guardar los cambios.
-
+3. Se guardan cambios con una terminal abierta en la carpeta `catkin_ws`.
     ```
     catkin build dynamixel_one_motor
     ```
 
-4. En la misma terminal, se ejecutan los siguientes comandos, los cuales dan pie a la ejecución y conexión de ROS con los motores.
+4. Para la conexion con los motores en la misma terminal, se ejecutan los siguientes comandos.
 
     ```
     source devel/setup.bash
