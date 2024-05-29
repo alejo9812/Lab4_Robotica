@@ -29,16 +29,17 @@ La función joint_publisher() inicializa un publicador de ROS en el tópico `/jo
 Este fragmento de código crea un mensaje `JointTrajectory`, asigna una marca de tiempo actual, define los nombres de las articulaciones y configura un punto de trayectoria con todas las posiciones inicializadas a cero y un tiempo desde el inicio de un segundo. Luego, agrega este punto al mensaje de trayectoria, publica el mensaje en el tópico correspondiente y finalmente imprime un mensaje de confirmación antes de pausar la ejecución durante cinco segundos, esto para cada posicion, el siguiente es un fragmento para la posicion 0.
 
 ```
-state = JointTrajectory()
-   state.header.stamp = rospy.Time.now()
-   state.joint_names = ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5"]
-   point = JointTrajectoryPoint()
-   point.positions = [0, 0, 0, 0, 0]    
-   point.time_from_start = rospy.Duration(1)
-   state.points.append(point)
-   pub.publish(state)
-   print('published command')
-   rospy.sleep(5)
+def joint_publisher(postura: list, pub: rospy.Publisher):
+    state = JointTrajectory()
+    state.header.stamp = rospy.Time.now()
+    state.joint_names = ["joint_1","joint_2","joint_3","joint_4","joint_5"]
+    point = JointTrajectoryPoint()
+    point.positions = postura  
+    point.time_from_start = rospy.Duration(1)
+    state.points.append(point)
+    pub.publish(state)
+    print('published command')
+    rospy.sleep(1)
 ```
 
 Se suscribe al topico `joint_states`.
@@ -48,6 +49,41 @@ def listener():
     rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
 ```
 
+
+## Toolbox
+
+```
+clear
+close all
+clc
+
+L = [95 -105 -102 68];
+off = [0 pi/2 pi/2 pi];
+q1 = [0 0 0 0]*pi/180;
+q2 = [25 25 20 -20]*pi/180;
+q3 = [-35 35 -30 30]*pi/180;
+q4 = [85 -20 55 25]*pi/180;
+q5 = [80 -35 55 -45]*pi/180;
+
+
+Ln1 = Link('revolute', 'd', L(1), 'a', 0, 'alpha', -pi/2, 'offset', off(1));
+Ln2 = Link('revolute', 'd', 0, 'a', L(2), 'alpha', 0, 'offset',   off(2));
+Ln3 = Link('revolute', 'd', 0, 'a', L(3), 'alpha', 0, 'offset',   off(3));
+Ln4 = Link('revolute', 'd', 0, 'a', L(4), 'alpha', -pi, 'offset',   off(4));
+
+Eslab = [Ln1;Ln2;Ln3;Ln4];
+T_tool = eye(4);
+Robot1 = SerialLink(Eslab, 'tool', T_tool)
+
+
+figure()
+ws = [-300 300 -300 300 -50 500];
+Robot1.plot ([0 0 0 0], 'workspace', ws, 'noa','noname')
+hold on
+trplot (eye(4), 'witdh', 2, 'arrow', 'length', 30)
+Robot1.teach(q5) %% Usar el q que se desea de entre las opciones
+hold off
+```
 
 ![Graph](Graph_mlx)
 
